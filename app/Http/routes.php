@@ -21,11 +21,24 @@ Route::get('/students', function () {
 	
 	foreach($students as $stu){
 		echo $stu->name.":<br/>";
-		$tasks = $stu->tasks();
+		$tasks = $stu->tasks;
 		echo "<ul>";
 			foreach($tasks as $task){
 				echo "<li>".$task->name."</li>";
 			}
 		echo "</ul>";
 	}
+});
+
+Route::get('/tasks', function () {
+    $tasks = App\Task::all();
+	
+	foreach($tasks as $task){
+		echo $task->name." asssigned to ".$task->student->name."<br/>";
+	}
+});
+
+Route::get('/mypage', function () {
+    $tasks = App\Task::all();
+	return View('mypage', array('tasks' => $tasks));
 });

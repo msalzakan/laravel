@@ -9,6 +9,6 @@ class Task extends Model
     //
 	
 	public function student(){
-		return $this->BelongTo('App\Student');
+		return $this->BelongsTo('App\Student');
 	}
 }
