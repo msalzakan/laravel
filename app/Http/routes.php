@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('students','StudentController');
+/*
 Route::get('/students', function () {
     $students = App\Student::all();
 	
@@ -29,7 +30,7 @@ Route::get('/students', function () {
 		echo "</ul>";
 	}
 });
-
+*/
 Route::get('/tasks', function () {
     $tasks = App\Task::all();
 	
